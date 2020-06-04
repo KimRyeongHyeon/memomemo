@@ -15,6 +15,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String deleteId = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.push(
-              context, CupertinoPageRoute(builder: (context) => WritePage()));
+              context, CupertinoPageRoute(builder: (context) => WritePage()))
+              .then((value) {
+            setState(() {
+
+            });
+          });
         },
         tooltip: "메모를 추가하려면 클릭하세요",
         label: Text('메모 추가'),
@@ -109,7 +115,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     parentContext,
                     CupertinoPageRoute(
-                        builder: (context) => ViewPage(id: memo.id)));
+                        builder: (context) => ViewPage(id: memo.id))).then((
+                    value) {
+                  setState(() {
+
+                  });
+                });
               },
               onLongPress: () {
                 deleteId = memo.id;

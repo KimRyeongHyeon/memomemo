@@ -15,6 +15,7 @@ class ViewPage extends StatefulWidget {
 
 class _ViewPageState extends State<ViewPage> {
   BuildContext _context;
+
   @override
   Widget build(BuildContext context) {
     _context = context;
@@ -31,7 +32,12 @@ class _ViewPageState extends State<ViewPage> {
                 Navigator.push(
                     context,
                     CupertinoPageRoute(
-                        builder: (context) => EditPage(id: widget.id)));
+                        builder: (context) => EditPage(id: widget.id))).then((
+                    value) {
+                  setState(() {
+
+                  });
+                });
               },
             )
           ],
